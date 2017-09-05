@@ -1,22 +1,9 @@
-import { Author, FortuneCookie } from './connectors';
+import db from '../models';
 
 const resolvers = {
   Query: {
-    author(_, args) {
-      return Author.find({ where: args });
-    },
-    getFortuneCookie() {
-      return FortuneCookie.getOne();
-    },
-  },
-  Author: {
-    posts(author) {
-      return author.getPosts();
-    },
-  },
-  Post: {
-    author(post) {
-      return post.getAuthor();
+    charts() {
+      return db.Chart.findAll();
     },
   },
 };

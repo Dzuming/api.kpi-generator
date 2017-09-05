@@ -11,7 +11,7 @@ const graphQLServer = express();
 
 graphQLServer.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
 graphQLServer.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
-models
+db
   .sequelize
   .sync()
   .then(function () {
